@@ -1,2 +1,4 @@
 # YOLOv7_ROS_RTSP
 This project subscribes to a real-time video stream through ROS topics, accelerates the inference of each frame of images via the Huawei Ascend TPU. After that, it draws the detected bounding boxes from the inference results onto the original images and then pushes the processed video out through RTSP streaming.
+
+rtsp.py directly converts the topics received by ROS 2 into an RTSP stream.code.py receives ROS 2 topics, performs preprocessing on images, conducts inference via Huawei chips, processes the inference boxes and overlays them on the images, and then pushes the stream to the RTSP stream.code_thread.py implements multi-threaded inference for the processes of image preprocessing, inference, and image post-processing. However, observations show that it does not improve the frame rate of the image stream.
